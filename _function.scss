@@ -1,18 +1,3 @@
-$web-colors : (
-  'primary'       : mcolor("indigo", "base"),
-  'primary-light' : lighten($primary-color, 15%),
-  'primary-dark'  : darken($primary-color, 15%),
-  'secondary'     : mcolor("pink", "accent-2"),
-  'success'       : mcolor("green", "base"),
-  'error'         : mcolor("red", "base"),
-  'link'          : mcolor("light-blue", "darken-1"),
-  'warn'          : mcolor("amber", "darken-1"),
-  'dark'          : #333,
-  'medium'        : #999,
-  'light'         : #ddd,
-  'chrome'        : #FDFDFD
-);
-
 @function colors($properties...){
   $property: _get($web-colors, $properties...);
   @return $property;
