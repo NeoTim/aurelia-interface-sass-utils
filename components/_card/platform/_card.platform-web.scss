@@ -1,0 +1,87 @@
+
+/* Card dimensions */
+$card-background-color: white !default;
+$card-text-color: $medium-gray !default;
+$card-width: 330px !default;
+$card-height: 200px !default;
+$card-font-size: 16px !default;
+$card-title-font-size: 24px !default;
+$card-horizontal-padding: 16px !default;
+$card-vertical-padding: 16px !default;
+
+$card-title-perspective-origin-x: 165px !default;
+$card-title-perspective-origin-y: 56px !default;
+
+$card-title-transform-origin-x: 165px !default;
+$card-title-transform-origin-y: 56px !default;
+
+$card-title-text-transform-origin-x: 149px !default;
+$card-title-text-transform-origin-y: 48px !default;
+
+$card-supporting-text-font-size: 13px !default;
+$card-supporting-text-line-height: 18px !default;
+$card-supporting-text-text-color: $dark-gray !default;
+
+$card-actions-font-size: 16px !default;
+
+$card-title-text-font-weight: 300 !default;
+$card-z-index: 1 !default;
+
+/* Cover image */
+$card-cover-image-height: 186px !default;
+$card-image-placeholder-color: $primary-color;
+$card-background-image-url: '' !default;
+
+$web-card-module: (
+  'display'       : flex,
+  'flex-direction': column,
+  'font-size'     : $card-font-size,
+  'font-weight'   : 400,
+  'min-height'    : $card-height,
+  'overflow'      : hidden,
+  'width'         : $card-width,
+  'z-index'       : $card-z-index,
+  'position'      : relative,
+  'background'    : $card-background-color,
+  'border-radius' : 2px,
+  'box-sizing'    : border-box,
+  'title': (
+    'align-items'       : center,
+    'color'             : $card-text-color,
+    'display'           : flex,
+    'justify-content'   : stretch,
+    'line-height'       : normal,
+    'padding'           : $card-vertical-padding $card-horizontal-padding,
+    'perspective-origin': $card-title-perspective-origin-x $card-title-perspective-origin-y,
+    'transform-origin'  : $card-title-transform-origin-x $card-title-transform-origin-y,
+    'box-sizing'        : border-box,
+  ),
+  'media': (
+    'background-color'      : $card-image-placeholder-color,
+    'background-repeat'     : repeat,
+    'background-position'   : 50% 50%,
+    'background-size'       : cover,
+    'background-origin'     : padding-box,
+    'background-attachment' : scroll,
+    'box-sizing'            : border-box,
+  ),
+  'text': (
+    'align-self'       : flex-start,
+    'color'            : inherit,
+    'display'          : flex,
+    'font-size'        : $card-supporting-text-font-size,
+    'font-weight'      : $card-title-text-font-weight,
+    'line-height'      : normal,
+    'overflow'         : hidden,
+    'transform-origin' : $card-title-text-transform-origin-x $card-title-text-transform-origin-y,
+    'margin'           : 0
+  ),
+  'actions': (
+    'font-size'         : $card-actions-font-size,
+    'line-height'       : normal,
+    'width'             : 100%,
+    'background-color'  : rgba(0,0,0,0),
+    'padding'           : 8px,
+    'box-sizing'        : border-box
+  )
+);

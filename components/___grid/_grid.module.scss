@@ -1,0 +1,93 @@
+
+//    grid,
+//  ai-grid,
+// .ai-grid {
+//   display: flex;
+//   min-width: 100%;
+//   position: relative;
+//   max-width: 100%;
+
+//   .flex, [flex], flex {
+//     margin: 0;
+//     padding: 0;
+//     flex: 1 0 auto;
+//     display: flex;
+//   }
+
+//   grid-col,
+//   .grid-col {
+//     display: flex;
+//     flex-direction: column;
+//     flex-wrap: wrap;
+//   }
+
+//   grid-row,
+//   .grid-row {
+//     display: flex;
+//     flex-direction: row;
+//     min-width: 100%;
+//     flex-wrap: wrap;
+//   }
+
+//   @for $index from 1 through 12 {
+//     .flex--#{$index} {
+//       flex: 0 0 ((100 / 12) * $index) + %;
+//     }
+//   }
+
+//   .grid--alignSelf--start {
+//     align-self: flex-start;
+//   }
+//   .grid--alignSelf--end {
+//     align-self: flex-end;
+//   }
+//   .grid--alignSelf--center {
+//     align-self: center;
+//   }
+
+
+//   .grid--alignItems--start {
+//     align-items: flex-start;
+//   }
+//   .grid--alignItems--end {
+//     align-items: flex-end;
+//   }
+//   .grid--alignItems--center {
+//     align-items: center;
+//   }
+
+
+//   .grid--justifyContent--start {
+//     justify-content: flex-start;
+//   }
+//   .grid--justifyContent--end {
+//     justify-content: flex-end;
+//   }
+//   .grid--justifyContent--center {
+//     justify-content: center;
+//   }
+//   .grid--justifyContent--around {
+//     justify-content: space-around;
+//   }
+//   .grid--justifyContent--between {
+//     justify-content: space-between;
+//   }
+
+//   .grid--direction--column {
+//     flex-direction: column;
+//   }
+//   .grid--direction--row {
+//     flex-direction: row;
+//   }
+
+//   @each $index in _range(2, 20, 2) {
+//     .grid--gutter--#{$index} {
+//       padding: $index + px;
+
+//       .grid-col, grid-col {
+//         padding: $index + px;
+
+//       }
+//     }
+//   }
+// }

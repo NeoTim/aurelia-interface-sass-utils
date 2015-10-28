@@ -1,0 +1,59 @@
+/*
+    This Component Is not following the Latest Component SCSS Convention
+ */
+
+
+@include loader-export-component('ai-card') {
+
+  @include customElement(card) {
+    @include card-base();
+
+    @include shadow-3dp();
+    background: white;
+    margin-bottom: 20px;
+    margin-right: 5px;
+
+    &[standard] {
+      min-height: 0;
+    }
+
+    ai-card-title {
+      @include card-title();
+    }
+
+    ai-card-media {
+      position: relative;
+      @include card-media();
+      // min-width: 230px;
+      // min-height: 230px;
+      // background-color: $card-image-placeholder-color;
+      ai-card-title {
+        position: absolute;
+        bottom:0;
+        color: white;
+
+      }
+    }
+
+    ai-card-text {
+      @include card-text();
+    }
+
+    ai-card-actions {
+      @include card-actions();
+      .Button {
+        color: $medium-gray;
+        background-color: white;
+        box-shadow: none;
+        &:hover, &:active, &:focus {
+          background-color: white;
+          color: $dark-gray;
+        }
+      }
+    }
+  }
+}
+
+.ai-card {
+  @extend card;
+}

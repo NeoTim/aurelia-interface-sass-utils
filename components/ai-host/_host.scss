@@ -1,0 +1,15 @@
+@mixin host-view($view:false) {
+  @if $view {
+    &[view="#{$view}"] {
+      ai-view {
+        @content;
+      }
+    }
+  } @else {
+    &[view] {
+      ai-view {
+        @content;
+      }
+    }
+  }
+}

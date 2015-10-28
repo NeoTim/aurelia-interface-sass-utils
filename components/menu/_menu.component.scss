@@ -1,0 +1,126 @@
+@import 'platform/_menu.platform-web';
+
+@mixin ai-menu__container {
+  $rules = _get($web-menu-module, 'container');
+  @include _rules($rules);
+}
+
+@mixin ai-menu__outline {
+  $rules = _get($web-menu-module, 'outline');
+  @include _rules($rules);
+  // 'background'        : $default-dropdown-bg-color,
+  // 'will-change'       : transform,
+}
+
+
+@mixin ai-menu--item(){
+  $rules = _get($web-menu-module, 'menu-item');
+  @include _rules($rules);
+  // 'color'            : $default-item-text-color,
+  // 'outline-color'    : $default-item-outline-color,
+  // 'transition'       :  opacity $menu-fade-duration $animation-curve-default,
+
+}
+
+
+.ai-menu-container {
+  @include ai-menu__container;
+}
+
+.ai-menu-outline {
+  @include ai-menu__outline();
+
+  .ai-menu-container.is-visible & {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 999;
+  }
+
+  &.ai-menu--bottom-right {
+    transform-origin: 100% 0;
+  }
+
+  &.ai-menu--top-left {
+    transform-origin: 0 100%;
+  }
+
+  &.ai-menu--top-right {
+    transform-origin: 100% 100%;
+  }
+}
+
+.ai-menu-menu {
+  @include ai-menu();
+
+  .ai-menu-container.is-visible & {
+    opacity: 1;
+    z-index: 999;
+  }
+
+  &.is-animating {
+    transition:
+      // opacity $menu-fade-duration $animation-curve-default,
+        // clip $menu-expand-duration $animation-curve-default;
+  }
+
+  &.ai-menu--bottom-right {
+    left: auto;
+    right: 0;
+  }
+
+  &.ai-menu--top-left {
+    top: auto;
+    bottom: 0;
+  }
+
+  &.ai-menu--top-right {
+    top: auto;
+    left: auto;
+    bottom: 0;
+    right: 0;
+  }
+
+  &.ai-menu--unaligned {
+    top: auto;
+    left: auto;
+  }
+}
+
+.ai-menu__item {
+  @include ai-menu-item();
+
+  .ai-menu__container.is-visible & {
+    opacity: 1;
+  }
+
+  &::-moz-focus-inner {
+    border: 0;
+  }
+
+  &[disabled] {
+    // color: $disabled-item-text-color;
+    background-color: transparent;
+    cursor: auto;
+
+    &:hover {
+      background-color: transparent;
+    }
+
+    &:focus {
+      background-color: transparent;
+    }
+  }
+
+  &:hover {
+    // background-color: $default-item-hover-bg-color;
+  }
+
+  &:focus {
+    outline: none;
+    // background-color: $default-item-focus-bg-color;
+  }
+
+  &:active {
+    // background-color: $daefault-item-active-bg-color;
+  }
+}

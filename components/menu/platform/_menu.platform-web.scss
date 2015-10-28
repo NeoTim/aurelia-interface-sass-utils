@@ -1,0 +1,65 @@
+$web-menu-module: (
+'container': (
+  'display'   : block,
+  'margin'    : 0,
+  'padding'   : 0,
+  'border'    : none,
+  'position'  : absolute,
+  'overflow'  : visible,
+  'height'    : 0,
+  'width'     : 0,
+  'z-index'   : -1,
+),
+ 'outline' : (
+  'display'           : block,
+  'margin'            : 0,
+  'padding'           : 0,
+  'border'            : none,
+  'border-radius'     : 2px,
+  'position'          : absolute,
+  'top'               : 0,
+  'left'              : 0,
+  'overflow'          : hidden,
+  'opacity'           : 0,
+  'transform'         : scale(0),
+  'transform-origin'  : 0 0,
+
+  'z-index'           : -1,
+ ),
+
+'menu': (
+  'position'   : absolute,
+  'list-style' : none,
+  'top'        : 0,
+  'left'       : 0,
+  'height'     : auto,
+  'width'      : auto,
+  'min-width'  : 124px,
+  'padding'    : 8px 0,
+  'margin'     : 0,
+  'opacity'    : 0,
+  'clip'       : rect(0 0 0 0),
+  'z-index'    : -1,
+ )
+'menu-item' : (
+  'display'          : block,
+  'border'           : none,
+  'background-color' : transparent,
+  'text-align'       : left,
+  'margin'           : 0,
+  'padding'          : 0 16px,
+
+  'position'         : relative,
+  'overflow'         : hidden,
+  'text-decoration'  : none,
+  'cursor'           : pointer,
+  'height'           : 48px,
+  'width'            : 100%,
+  'line-height'      : 48px,
+  'white-space'      : nowrap,
+  'opacity'          : 0,
+
+  'user-select'      : none,
+  ),
+);
+
