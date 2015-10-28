@@ -46,12 +46,17 @@ $heading--fontSize: (
  **********/
 $grid-columns:               12 !default;
 $grid-gutter-width:          1.875rem !default; // 30px
+$breakpoint-xs: 0;
+$breakpoint-sm: 34em;
+$breakpoint-md: 48em;
+$breakpoint-lg: 62em;
+$breakpoint-xl: 75em;
 $grid-breakpoints: (
-  xs: 0,
-  sm: 34em,
-  md: 48em,
-  lg: 62em,
-  xl: 75em
+   xs: $breakpoint-xs
+  ,sm: $breakpoint-sm
+  ,md: $breakpoint-md
+  ,lg: $breakpoint-lg
+  ,xl: $breakpoint-xl
 ) !default;
 
 $breakpoints: $grid-breakpoints;

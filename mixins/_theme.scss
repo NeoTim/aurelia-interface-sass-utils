@@ -1,3 +1,11 @@
+
+@mixin select-theme($theme:light) {
+  .theme-#{$theme} {
+    @content;
+  }
+}
+
+
 @function color($color, $mval:null) {
   @if $mval != null {
     @return material-color($color, $mval);

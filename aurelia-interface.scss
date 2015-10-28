@@ -48,3 +48,8 @@
 @import 'placeholders/_form.scss';
 @import 'placeholders/_paper-elements.scss';
 @import 'components/ai-host/_host';
+
+/* Button Element */
+@import 'elements/button/_settings';
+@import 'elements/button/_mixins';
+@import 'elements/button/_button';

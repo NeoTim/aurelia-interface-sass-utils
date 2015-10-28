@@ -9,16 +9,23 @@
 }
 
 @function get-shadow-depth($dp, $index) {
-  @return get-shadow($dp, $index, depth);
+  $dp: map-get($shadow-index-settings, $dp);
+  $index: map-get($dp, $index);
+  @return map-get($index, depth);
 }
 
 @function get-shadow-opacity($dp, $index) {
-  $opacity: get-shadow($dp, $index, opacity);
+  $dp: map-get($shadow-index-settings, $dp);
+  $index: map-get($dp, $index);
+  $opacity: map-get($index, opacity);
   @return shadow-rgba($opacity);
 }
 
 @function get-shadow-size($dp, $index) {
-  @return get-shadow($dp, $index, size);
+  $dp: map-get($shadow-index-settings, $dp);
+  $index: map-get($dp, $index);
+  $size: map-get($index, size);
+  @return $size;
 }
 
 @function make-shadow($dp, $index, $side:false) {

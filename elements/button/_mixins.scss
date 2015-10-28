@@ -1,0 +1,120 @@
+
+@mixin button-size--variant($size) {
+  max-height: button-element(size, $size, min-height);
+  button {
+    @include button-element(size, $size);
+  }
+}
+
+
+@mixin button-color--variant($background, $color, $border:transparent, $states:false, $quit:false) {
+  background-color: $background;
+  color: $color;
+  border-color: $border;
+  @if $quit == false and $states {
+    &.is-active,
+    &:active,
+    &:hover {
+      @include button-color--variant($color, $background, $quit:true);
+    }
+  }
+}
+
+
+@mixin themed-buttons($variants: $button--color-variants, $first:bg, $second:color, $third:transparent, $states:false) {
+  @each $name, $theme in $button--color-variants {
+    $bg: if($first == bg or $first == color, map-get($theme, $first), $first);
+    $color: if($second == bg or $second == color, map-get($theme, $second), $second);
+    $border: if($third == bg or $third == color, map-get($theme, $third), $third);
+
+    @if $name == default {
+      button {
+        @include button-color--variant($bg, $color, $border, $states);
+      }
+    }
+    @else {
+      &[theme="#{$name}"] button {
+        @include button-color--variant($bg, $color, $border, $states);
+      }
+    }
+  }
+}
+
+@mixin circle-button($size) {
+  min-height: $size !important;
+  max-height: $size !important;
+  height: $size !important;
+  min-width: $size !important;
+  max-width: $size !important;
+  width: $size !important;
+  border-radius: $size;
+}
+
+@mixin round-buttons($variants: $button--round-variants) {
+  @each $name, $size in $variants {
+    @if $name == default {
+      button {
+        @include circle-button($size);
+      }
+    }
+    @else {
+      &[size="#{$name}"] button {
+        @include circle-button($size);
+      }
+    }
+  }
+}
+
+@mixin fill-buttons($variants: $button--color-variants) {
+  @include themed-buttons($variants, bg, color, transparent, false);
+}
+
+@mixin raised-buttons($variants: $button--shadow-variants) {
+  button {
+    @include shadow-dp(map-get($variants, default));
+  }
+  button:hover {
+    @include shadow-dp(map-get($variants, hover));
+  }
+
+  &.is-active button,
+  button.is-active,
+  button:active {
+    @include shadow-dp(map-get($variants, active));
+  }
+}
+
+@mixin flat-buttons($variants: $button--color-variants) {
+  @include themed-buttons($variants, transparent, bg);
+}
+
+@mixin light-buttons($variants: $button--color-variants) {
+  @include themed-buttons($variants, color, bg, transparent, states);
+}
+
+@mixin outline-buttons($variants: $button--color-variants) {
+  button {
+    border-width: 1px;
+    border-style: solid;
+  }
+  @include themed-buttons($variants, color, bg, bg, states);
+}
+
+
+@mixin relieve-button-sides($sides...) {
+  @each $side in $sides {
+    margin-#{$side}: 0;
+    padding-#{$side}: 0;
+    button {
+      margin-#{$side}: 0;
+    }
+  }
+}
+
+@mixin relieve-button-radius($corners...) {
+  @each $corner in $corners {
+    button {
+      border-#{$corner}-radius: 0;
+    }
+  }
+}

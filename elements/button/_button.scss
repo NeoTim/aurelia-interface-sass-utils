@@ -1,0 +1,117 @@
+
+
+@mixin ButtonElement {
+  display        : flex;
+  outline        : 0;
+  position       : relative;
+  cursor         : pointer;
+  text-align     : center;
+  white-space    : nowrap;
+  vertical-align : middle;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  user-select    : none;
+  -webkit-tap-highlight-color : transparent;
+  -webkit-font-smoothing      : antialiased;
+  box-shadow: 0 0 0 rgba(0,0,0,0);
+  @include animation-default;
+  @include align-items(center);
+  @include justify-content(center);
+  button-content {
+    text-align: center;
+  }
+}
+
+@mixin AIButtonElement($round:false, $raised:false, $flat:false, $light:false, $fill:false, $outline:false, $default:false) {
+  display: inline-flex;
+  @include transform(translateZ(0));
+  @include align-self(center);
+
+  ai-icon {
+    font-size: 1.5em;
+    @include order(-1);
+    padding-right: em(4);
+  }
+
+  ai-icon.ai-icon,
+  ai-icon.next-icon {
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+  }
+
+  button {
+    will-change: box-shadow;
+    will-change: transform;
+    margin: em(8);
+    @extend %ButtonCoreElement;
+    @include button-color--variant(transparent, theme-primary(accent));
+    @include transform(translateZ(0));
+  }
+
+  button-content {
+    display: flex;
+    @include align-items(center);
+    @include justify-content(center);
+  }
+
+  @include themed-buttons($button--color-variants, bg, color, transparent);
+
+  @if $default == round {@include round-buttons($button--round-variants)}
+  @else if $default == raised {@include raised-buttons($button--shadow-variants)}
+  @else if $default == flat {@include flat-buttons($button--color-variants)}
+  @else if $default == light {@include light-buttons($button--color-variants)}
+  @else if $default == fill {@include fill-buttons($button--color-variants)}
+  @else if $default == outline {@include outline-buttons($button--color-variants)}
+
+  @if $round {
+    &[round] {
+      @include round-buttons($button--round-variants);
+    }
+  }
+  @if $raised {
+    &[raised] {
+      @include raised-buttons($button--shadow-variants);
+    }
+  }
+  @if $flat {
+    &[flat] {
+      @include flat-buttons($button--color-variants);
+    }
+  }
+  @if $light {
+    &[light] {
+      @include light-buttons($button--color-variants);
+    }
+  }
+  @if $fill {
+    &[fill] {
+      @include fill-buttons($button--color-variants);
+    }
+  }
+  @if $outline {
+    &[outline] {
+      @include outline-buttons($button--color-variants);
+    }
+  }
+}
+
+@mixin round-button-element {
+  @include round-buttons($button--round-variants);
+}
+@mixin raised-button-element {
+  @include raised-buttons($button--shadow-variants);
+}
+@mixin flat-button-element {
+  @include flat-buttons($button--color-variants);
+}
+@mixin light-button-element {
+  @include light-buttons($button--color-variants);
+}
+@mixin fill-button-element {
+  @include fill-buttons($button--color-variants);
+}
+@mixin outline-button-element {
+  @include outline-buttons($button--color-variants);
+}
+

@@ -1,0 +1,20 @@
+
+$bs-line-height:            1.5 !default;
+$bs-line-height-lg:         (4/3) !default;
+$bs-line-height-sm:         1.5 !default;
+$bs-border-radius:          .25rem !default;
+$bs-border-radius-lg:       .3rem !default;
+$bs-border-radius-sm:       .2rem !default;
+// Padding applied to the modal body
+$bs-modal-inner-padding:         15px !default;
+$bs-modal-title-padding:         15px !default;
+$bs-modal-title-line-height:     $bs-line-height !default;
+$bs-modal-content-bg:                             #fff !default;
+$bs-modal-content-border-color:                   rgba(0,0,0,.2) !default;
+$bs-modal-backdrop-bg:           #000 !default;
+$bs-modal-backdrop-opacity:      .5 !default;
+$bs-modal-header-border-color:   #e5e5e5 !default;
+$bs-modal-footer-border-color:   $bs-modal-header-border-color !default;
+$bs-modal-lg:                    900px !default;
+$bs-modal-md:                    600px !default;
+$bs-modal-sm:                    300px !default;

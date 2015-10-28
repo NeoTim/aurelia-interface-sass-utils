@@ -1,0 +1,92 @@
+$button--color-variants: (
+  default:(
+    bg: theme-primary(accent),
+    color: white
+  ),
+  primary:(
+    bg: color('indigo', 'a200'),
+    color: white,
+  ),
+  accent:(
+    bg: color(accent),
+    color: white,
+  ),
+  success:(
+    bg: color(success),
+    color: white,
+  ),
+  error:(
+    bg: color(error),
+    color: white,
+  ),
+  link:(
+    bg: color(link),
+    color: white,
+  ),
+  disabled:(
+    bg: color(disabled),
+    color: color(dark),
+  ),
+  dark:(
+    bg: color(dark),
+    color: white,
+  ),
+) !default;
+
+$button--shadow-variants: (
+  default: 2,
+  hover:   4,
+  active:  1
+) !default;
+
+$button--round-variants: (
+  default: em(56),
+  small:   em(40),
+  medium:  em(56),
+  large:   em(80)
+) !default;
+
+/* Button Size */
+$button-settings: (
+  size: (
+    small: (
+      min-width:   em(48),
+      font-size:   em(12),
+      font-weight: 400,
+      line-height: 1,
+      min-height: em(24),
+    ),
+    medium: (
+      min-width:   em(64),
+      font-size:   em(14),
+      font-weight: 400,
+      line-height: em(36),
+      max-height: em(36),
+      padding: 0 em(8),
+    ),
+    large: (
+      min-width:   em(80),
+      font-size:   em(16),
+      font-weight: 400,
+      line-height: em(48),
+      max-height: em(48),
+      padding: 0 em(8),
+    )
+  )
+) !default;
+
+
+@function button-element($props...) {
+  @return _get($button-settings, $props...);
+}
+
+/**
+ * @mixin button-element
+ * @uses Function(): button-element;
+ * @param  {List} $args...   ArgumentList
+ */
+@mixin button-element($args...) {
+  $rules: button-element($args...);
+  @include _declare($rules);
+  @content;
+}
